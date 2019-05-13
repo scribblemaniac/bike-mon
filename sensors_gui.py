@@ -38,13 +38,13 @@ class CadenceDelegate(btle.DefaultDelegate):
 		self.prevETime = eTime
 
 print("Connecting to speed sensor...")
-spdPeri = btle.Peripheral("C4:D3:54:E8:33:B9", btle.ADDR_TYPE_RANDOM)
+spdPeri = btle.Peripheral("<address>", btle.ADDR_TYPE_RANDOM)
 spdPeri.setDelegate(SpeedDelegate())
 spdPeri.writeCharacteristic(0x0024, b"\1\0", True)
 print("Speed sensor connected")
 
 print("Connecting to cadence sensor...")
-cadPeri = btle.Peripheral("E0:25:5E:B0:4D:EC", btle.ADDR_TYPE_RANDOM)
+cadPeri = btle.Peripheral("<address>", btle.ADDR_TYPE_RANDOM)
 cadPeri.setDelegate(CadenceDelegate())
 cadPeri.writeCharacteristic(0x0024, b"\1\0", True)
 print("Cadence sensor connected")
